@@ -11,11 +11,12 @@ public class PlayerUpgradeApplier : MonoBehaviour
 
     void Start()
     {
-        ApplySpeedUpgrade();
-        ApplyHealthUpgrade();
+        ApplySpeedUpgrade(); // hız yükseltir
+        ApplyHealthUpgrade(); // can hp yükseltir
     }
 
-    void ApplySpeedUpgrade()
+    void ApplySpeedUpgrade() // Oyuncunun hız seviyesini PlayerPrefs’ten alır.
+                            // Seviye arttıkça hız çarpanı hesaplanır:
     {
         int speedLevel = PlayerPrefs.GetInt("Speed", 1);
         float speedMult = 1f + speedPerLevel * (speedLevel - 1);
@@ -43,7 +44,8 @@ public class PlayerUpgradeApplier : MonoBehaviour
         Debug.LogWarning($"[PlayerUpgradeApplier] '{t.Name}' üzerinde '{speedFieldOrPropertyName}' float field/property bulunamadı. Hız uygulanamadı.");
     }
 
-    void ApplyHealthUpgrade()
+    void ApplyHealthUpgrade() // Oyuncunun health seviyesini PlayerPrefs’ten alır.
+                                // Ekstra can miktarını hesaplar:
     {
         int healthLevel = PlayerPrefs.GetInt("Health", 1);
         int extraHp = healthPerLevel * (healthLevel - 1);

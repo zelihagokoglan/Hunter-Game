@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyController))]
 public class EnemyShooter : MonoBehaviour
 {
-    public Transform firePoint;
-    public Projectile projectilePrefab;
+    public Transform firePoint; // namlu
+    public Projectile projectilePrefab; 
     public float fireInterval = 4f;
     public float maxAcquireRange = 100f;
 

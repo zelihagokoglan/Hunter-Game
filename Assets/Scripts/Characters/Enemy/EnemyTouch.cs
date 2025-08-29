@@ -52,7 +52,8 @@ public class EnemyTouch : MonoBehaviour
         pos.y = yLock;
         transform.position = pos;
     }
-    void UpdateWander()
+    void UpdateWander() // düşman rastgele bir noktaya doğru dolaşır
+                        // bekleme süresi varsa bekle yoksa hedefe doğru hareket eder
     {
         if (pauseTimer > 0f)
         {
@@ -69,7 +70,8 @@ public class EnemyTouch : MonoBehaviour
         }
     }
 
-    void UpdateChase(Vector3 toPlayer)
+    void UpdateChase(Vector3 toPlayer) // Düşman, Player’a doğru yönelir.
+                                       // Rotasyonunu yumuşak şekilde Player’a çevirir.
     {
         if (toPlayer.sqrMagnitude > 0.0001f)
         {
@@ -79,7 +81,8 @@ public class EnemyTouch : MonoBehaviour
         transform.position += transform.forward * (moveSpeed * Time.deltaTime);
     }
 
-    void MoveTowards(Vector3 target)
+    void MoveTowards(Vector3 target) // Verilen hedef noktasına doğru yönelip hareket etmesini sağlar.
+                                     // Rotasyonu hedef yönüne döndürür, ardından ileri doğru hareket ettirir.
     {
         Vector3 to = target - transform.position;
         to.y = 0f;
@@ -90,7 +93,9 @@ public class EnemyTouch : MonoBehaviour
         transform.position += transform.forward * (moveSpeed * Time.deltaTime);
     }
 
-    void PickNewWanderPoint()
+    void PickNewWanderPoint() // Düşmana yeni rastgele bir dolaşma hedefi seçtirir.
+                              // Eğer moveArea (BoxCollider) atanmışsa → bu alanın içinde nokta seçer.
+                              // Yoksa → mevcut konum çevresinde 3 birimlik daire içinde nokta seçer.
     {
         if (moveArea)
         {
@@ -107,27 +112,28 @@ public class EnemyTouch : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col) // Player ile ilk temas olduğunda hasar vermeye çalışır (TryDamage).
     {
         if (col.gameObject.CompareTag(playerTag)) TryDamage(col.gameObject);
     }
 
-    void OnCollisionStay(Collision col)
+    void OnCollisionStay(Collision col) // Player ile çarpışma devam ediyorsa hasar vermeye çalışır.
     {
         if (col.gameObject.CompareTag(playerTag)) TryDamage(col.gameObject);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) // Eğer düşmanın collider’ı Trigger modundaysa, Player ilk girdiğinde hasar verir.
     {
         if (other.CompareTag(playerTag)) TryDamage(other.gameObject);
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other) // Trigger alanında Player durmaya devam ederse hasar verir
     {
         if (other.CompareTag(playerTag)) TryDamage(other.gameObject);
     }
 
-    void TryDamage(GameObject target)
+    void TryDamage(GameObject target) // Player’a hasar vermeyi dener.
+                                      // Hasar verme, damageCooldown süresince bir kez yapılır 
     {
         if (Time.time - lastDamageTime < damageCooldown) return;
         lastDamageTime = Time.time;

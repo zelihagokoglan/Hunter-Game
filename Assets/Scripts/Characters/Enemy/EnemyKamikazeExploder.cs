@@ -27,14 +27,14 @@ public class EnemyKamikazeExploder : MonoBehaviour
 
     void Awake()
     {
-        target = GameObject.FindWithTag(targetTag)?.transform;
-        agent  = GetComponent<NavMeshAgent>();
+        target = GameObject.FindWithTag(targetTag)?.transform; // player ı bulur
+        agent  = GetComponent<NavMeshAgent>(); // navmesh agent varsa referans alır
     }
 
     void Update()
     {
         if (done || arming || !target) return;
-
+// done: düşman patlamışsa arming: hazırlık sürecinde veya target yoksa hiçbir şey yapmaz
         Vector3 to = target.position - transform.position;
         to.y = 0f;
 
@@ -46,7 +46,7 @@ public class EnemyKamikazeExploder : MonoBehaviour
     {
         arming = true;
 
-        // İstersen burada renk/anim ile telgraf ver
+        // enemynin patlama için bekleme süresi kırmızı yancak 
         yield return new WaitForSeconds(windupTime);
 
         ExplodeNow();
@@ -62,8 +62,8 @@ public class EnemyKamikazeExploder : MonoBehaviour
         Debug.Log("Patlama oldu!");
 
         if (hasExploded) return;
-        hasExploded = true;
-        done = true;
+        hasExploded = true; // patlama birden fazla çalışmasın
+        done = true; // patlama tamamlandı
 
         if (stopAgentOnExplode && agent)
         {
@@ -91,7 +91,7 @@ public class EnemyKamikazeExploder : MonoBehaviour
     }
 
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected() // sahnede patlama alanını örsel olarak göstermek için kullanıldı
     {
         Gizmos.color = new Color(1f, 0.5f, 0f, 0.2f);
         Gizmos.DrawSphere(transform.position, radius);

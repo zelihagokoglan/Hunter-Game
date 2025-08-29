@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent))] // attribute, bu scripte bağlı enemy e navmeshagent ekler
 public class EnemyController : MonoBehaviour
 {
     public string targetTag = "Player";
@@ -12,8 +12,8 @@ public class EnemyController : MonoBehaviour
 
     public Transform Target => target;
 
-    NavMeshAgent agent;
-    Transform target;
+    NavMeshAgent agent; // Hareket ve yol bulma işlerini yapan Unity’nin AI componenti.
+    Transform target; // player ın transformunu tutar
 
     void Awake()
     {
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindWithTag(targetTag)?.transform;
+        target = GameObject.FindWithTag(targetTag)?.transform; // sahnedeki player ı bulur ve hedef olarak atar
     }
 
     void Update()
@@ -42,9 +42,9 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        agent.SetDestination(target.position);
+        agent.SetDestination(target.position);// hedefin pozisyonuna doğru gitmesini sağlar
 
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance) // hedefe ulaştı mı kontrolü
         {
             agent.isStopped = true;         
             agent.velocity = Vector3.zero;  
@@ -52,11 +52,11 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            agent.isStopped = false;
+            agent.isStopped = false; // eğer hedefe ulaşılmadıysa hareket devam eder
         }
     }
     void OnDisable()
     {
-        if (agent) agent.ResetPath();
+        if (agent) agent.ResetPath(); // gameobject kapanınca agent yolu sıfırlanır
     }
 }
