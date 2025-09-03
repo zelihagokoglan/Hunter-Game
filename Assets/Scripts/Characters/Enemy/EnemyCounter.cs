@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
 {
-    static EnemyCounter _instance;  // Sahnede tek olsun (isteğe bağlı)
-    int alive;                      // Yaşayan düşman sayısı
-    bool allRaised;                 // AllEnemiesDead sadece 1 kez yayılsın
+    static EnemyCounter _instance;  
+    int alive;                      
+    bool allRaised;                 
 
     void Awake()
     {
@@ -18,7 +18,6 @@ public class EnemyCounter : MonoBehaviour
 
     void Start()
     {
-        // TAG ile sayım (Enemy tag’i tüm düşman prefablarında olmalı)
         alive = GameObject.FindGameObjectsWithTag("Enemy").Length;
         Debug.Log($"[EnemyCounter] Start alive(by TAG)={alive}");
 
