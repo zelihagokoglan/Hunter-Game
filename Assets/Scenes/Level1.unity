@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1608597461315642755, guid: 2d4a6f8bbc23b44e290ddeb95d0db6fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5673173082072433048, guid: 2d4a6f8bbc23b44e290ddeb95d0db6fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.88774526
@@ -294,6 +298,10 @@ PrefabInstance:
     - target: {fileID: 6007676814660480661, guid: 2d4a6f8bbc23b44e290ddeb95d0db6fd, type: 3}
       propertyPath: m_Name
       value: PlayerRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184431312298994772, guid: 2d4a6f8bbc23b44e290ddeb95d0db6fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8290057532445797454, guid: 2d4a6f8bbc23b44e290ddeb95d0db6fd, type: 3}
       propertyPath: joystick
@@ -585,6 +593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5807933979528550930, guid: 66419635839b947f8b623bd35c0ce837, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -849,6 +861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5735586311487040655, guid: 7cdaaf21bf8124501acd99b10f579047, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1058,6 +1074,10 @@ PrefabInstance:
     - target: {fileID: 3189092578557979155, guid: 06ad5b13e42524a50b96effc191ff947, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3189092578557979155, guid: 06ad5b13e42524a50b96effc191ff947, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4376071215353669141, guid: 06ad5b13e42524a50b96effc191ff947, type: 3}
       propertyPath: stoppingDistance
@@ -1277,6 +1297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2539351737002149873, guid: 00189bdbfba70419cae6ba48da703e4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1325,6 +1349,10 @@ PrefabInstance:
     - target: {fileID: 7629291563558922553, guid: b753168b50e524fed86cda382aaf6246, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629291563558922553, guid: b753168b50e524fed86cda382aaf6246, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8447937966772925343, guid: b753168b50e524fed86cda382aaf6246, type: 3}
       propertyPath: m_Name
